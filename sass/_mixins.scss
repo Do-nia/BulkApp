@@ -1,0 +1,61 @@
+@mixin boxShadow( $top, $left, $blur, $spread, $color ){
+    box-shadow: $top $left  $blur $spread $color ;
+}
+@mixin gradiant( $direction , $from , $to ){
+    background: -webkit-linear-gradient($direction, $from 0%, $to 100%);
+    background: -moz-linear-gradient($direction, $from 0%, $to 100%);
+    background: -o-linear-gradient($direction, $from 0%, $to 100%);
+    background: linear-gradient($direction, $from 0%, $to 100%);  
+}
+@mixin backgroundImage($filePath, $bgReapeat:no-repeat, $bgSize:cover) {
+    background-image: url($filePath);
+    background-repeat: $bgReapeat;
+    background-size: $bgSize;
+}
+@mixin backgroundColor($bgColor) {
+    background-color: $bgColor;
+} 
+@mixin borderRadius($br){
+    border-radius: $br;
+}
+@mixin grid($fr , $gap:none){
+    display: grid;
+    grid-template-columns: $fr;
+    grid-gap: $gap;
+}
+%paddingSec{
+    padding: 100px 0;
+}
+%marginP{
+    margin-bottom: 30px;
+}
+
+// fonts
+@mixin typoBold ($size:14px){
+	font-family: 'ralewaybold';
+	font-size: $size;
+	line-height: $size * 1.618;
+}
+@mixin typoregular ($size:14px){
+	font-family: 'ralewayreg';
+	font-size: $size;
+	line-height: $size * 1.618;
+}
+// buttons
+@mixin btn( $bgColor , $br:5px,  $border:none , $width:180px , $height:50px ){
+    padding: 15px 20px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+    color: $black;
+    border: $border;
+    width: $width;
+    height: $height;
+    @include backgroundColor($bgColor);
+    @include borderRadius($br);
+    @include typoBold(12px);
+}
+%gradiantbtn{
+    @include btn(none);
+    @include gradiant( right , $startGradiant , $endGradiant );
+    color: $white;
+}

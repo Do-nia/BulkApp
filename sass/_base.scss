@@ -1,0 +1,373 @@
+// Reset default style
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  
+
+    a { 
+        text-decoration: none;
+        color: white;
+    }
+    li{
+        list-style: none;
+    }
+    .container{
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+@font-face{
+    font-family: 'ralewaybold';
+    src: url($boldFont);
+}
+@font-face{
+    font-family: 'ralewayreg';
+    src: url($regFont);
+}
+
+//common
+.title{
+    text-align: center;
+    h2{
+        @include typoBold (35px);
+        text-transform: capitalize;
+        margin-bottom: 20px;
+    }
+    p{
+        width:600px;
+        margin: 0 auto;
+        @include typoregular (14px);
+        margin-bottom: 80px;
+    }
+}
+
+// header
+header{
+    @include backgroundImage($heroBg);
+    .headerSec{
+        @include grid(1fr 1fr);
+        margin-bottom: 40px;
+        // position: fixed;
+            figure{
+                padding:30px 0px;
+            }
+            ul{
+                padding-top: 40px;
+                padding-left: 20px;
+                text-align: left;
+                li{
+                    display: inline-block;
+                    margin-left: 25px;
+                    text-transform: uppercase;
+                    @include typoBold (12px);
+                } 
+            }        
+    }    
+    .headerContent{
+        @include grid(1fr 1fr);
+        justify-content: center;
+            article{
+                color: $white;
+                margin-top: 150px;
+                    h1{
+                        @include typoBold (55px);
+                        text-transform: capitalize;
+                        width: 405px;
+                        margin-bottom: 15px;
+                    }
+                    p{
+                        @include typoregular (14px);
+                        @extend %marginP;
+                        width: 440px;
+                    }
+                    button{
+                        @include btn($white);
+                    }
+            }
+            figure{
+                text-align: end;
+            }
+    }
+}
+
+// featured 
+.featured{
+    @extend %paddingSec;
+    .box{
+        @include grid(1fr 1fr 1fr 1fr , 20px);
+        text-align: left;
+            figure{
+                padding: 50px 25px;
+                @include boxShadow(0px , 11px , 44px , -12px , rgba(0,0,0,0.3));   
+                img{
+                    margin-bottom: 30px;
+                }
+                h3{
+                    @include typoBold (20px); 
+                    margin-bottom: 15px;
+                }
+                p{
+                    @include typoregular (14px); 
+                    color: $grey;
+                }
+            }
+    }
+}
+
+//interior
+.interior{
+    @include backgroundColor($lightGreyBg);
+    @extend %paddingSec;
+    .container{
+        @include grid(1fr 1fr , 100px);
+        .interiorContent{
+            padding: 50px 0;    
+            h2{
+                @include typoBold(40px);
+                margin-bottom: 20px;
+                text-transform: capitalize;
+            }
+            p{
+                @include typoregular (14px);
+                @extend %marginP;
+                color: $grey;
+            }
+            button{
+                @extend %gradiantbtn;
+            }
+        }    
+    }
+}
+.int2{
+    @include backgroundColor($white);
+}
+
+//video
+.video{
+    @include backgroundImage($video);
+    margin-bottom: 100px;
+    text-align: center;
+    img{
+        position: relative;
+        padding: 200px;
+    }
+}
+
+//price
+.price{
+    @include backgroundColor($lightGreyBg);
+    @extend %paddingSec;
+    .priceTable{
+        @include grid(1fr 1fr 1fr 1fr , 20px);
+        .table{
+            @include backgroundColor($white);
+            text-align: center;
+            .tabletitle{
+                @include grid(1fr 1fr);
+                align-items: center;        
+                .standard{
+                    text-align: left;
+                    padding: 25px;
+                    h4{
+                        @include typoBold(20px);
+                    }
+                    h5{
+                        @include typoregular(10px);
+                        text-transform: capitalize;
+                        color: $grey;
+                    }
+                }
+                span{
+                    @include typoBold(30px);
+                }
+            }
+        p{
+            @include typoregular(12px);
+            line-height: 30px;
+            color: $grey;
+            padding: 25px;
+        }
+        button{
+            @include btn($lightGreyBg , 5px , 1px solid $grey);
+            margin-bottom: 40px;
+        }    
+        }
+    }
+}
+.tabletitle::after{
+    width: 200%;
+    display: block;
+    content: "";
+    border: 2px solid $lightGreyBg;
+}
+
+//pics
+.pics{
+    @extend %paddingSec;
+    .picsTable{
+        @include grid(1fr 1fr 1fr 1fr , 20px);
+    }
+}
+
+// testimonails
+.testi{
+    @include backgroundColor($lightGreyBg);
+    @extend %paddingSec;
+    .content{
+        @include grid(1fr 1fr , 20px);
+        padding: 20px;
+    }
+    article{
+        @include backgroundColor($white);
+        display: flex;
+        justify-content: space-between;
+        padding: 50px;
+        figure{
+            padding-right:20px;
+        }
+        p , h4{
+            @include typoregular(12px);
+            color: $grey;
+            padding-bottom: 10px;
+        }
+        h2{
+            @include typoBold(20px);
+            text-transform: capitalize;
+            padding-bottom: 10px;
+        }
+        &:hover{
+            @include boxShadow(0px , 11px , 44px , -12px , rgba(0,0,0,0.3));
+        }
+    }
+}
+
+// download
+.download{
+    @include gradiant( right , $startGradiant , $endGradiant);
+    @extend %paddingSec;
+    color: $white;
+    .downloadContent{
+        @include grid(1fr 1fr , 20px);
+        width: 35%;
+        margin: 0 auto;
+        .app{
+            @include grid(1fr 2fr , 5px);
+            border: 1px solid $white;
+            padding: 5%;
+            border-radius: 4px;
+            h3{
+                @include typoBold(25px);
+            }
+            p{
+                @include typoregular(13px);
+            }
+            figure{
+                text-align: center;
+                font-size: 50px;
+            }
+        }
+    }
+}
+
+// news
+.news{
+    @extend %paddingSec; 
+    .newsBoxs{
+        @include grid(1fr 1fr 1fr , 20px);
+        article{
+            @include backgroundColor($lightGreyBg);
+            padding: 60px 35px;
+            button{
+                @include btn(#FFFFFF , none , 1px solid #DDDDDD , 120px , none);
+                padding: 8px;
+                color: $grey;
+                margin:20px 0;
+            }
+            h3{
+                @include typoBold(20px);
+            }
+            p{
+                @include typoregular(15px);
+                padding: 20px 0;
+                color: $grey;
+            }
+            .icons{
+                @include grid(1fr 1fr 1fr , 1px);
+                color: $grey;
+                section{
+                    font-size: 15px;
+                    margin: 0 auto;
+                }
+            }
+        }
+    }
+}
+// footer
+footer{
+    @include backgroundColor($blackgrey);
+    @extend %paddingSec;
+    .footerGrid{
+        @include grid(1fr 2fr 1fr);
+        color:$white;
+        margin-bottom: 100px;
+        h4{
+            @include typoBold(18px);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        li, p{
+            @include typoregular(15px);
+            margin-bottom: 12px;
+        }
+        input{
+            padding: 10px;
+            width: 370px;
+            outline: 0;
+            border: 0;
+            @include borderRadius(20px);
+        }
+        button{
+            @include gradiant( right , $startGradiant , $endGradiant );
+            @include borderRadius(20px);
+            padding: 10px 30px;
+            color: $white;
+            border: none;
+            outline: 0;
+            position: absolute;
+            right:500px;
+           i{
+            margin-left: 10px;
+           } 
+        }
+        figure{
+            @include grid(1fr 1fr 1fr 1fr , 10px);          
+            img{
+                width:100%;
+            }
+        }
+    }
+}
+.last {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    p{
+        color:$white;
+        @include typoregular(15px);
+    }
+    span{
+        color:$startGradiant;
+    }
+    i{
+        font-size: 10px;
+        margin-left: 10px;
+        color:$white;
+        padding: 10px;
+        box-sizing: border-box;
+        @include backgroundColor($black);
+    }
+    .fa-facebook-f{
+    padding: 10px 13px;
+    box-sizing: border-box;
+    }
+}
